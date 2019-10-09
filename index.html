@@ -21,7 +21,6 @@
 </head>
 
 <body class="bg-warning">
-    <!-- Fundo escuro -->
 
     <main class="container mt-4">
         <section class="row">
@@ -33,16 +32,16 @@
                 </div>
             </div>
         </section>
-        <!-- Formulario de login -->
+        <!-- Formulario -->
         <section class="row">
 
             <div class="col-lg-4 offset-lg-4 bg-success rounded" id="caixaLogin">
 
                 <h2 class="text-center mt-2">
-                    === $ BRASIL $ ===
+                    === $ Prova $ ===
                 </h2>
 
-                <form action="#" method="post" class="p-2" id="formLogin">
+                <form action="cadastro.php" method="post" class="p-2" id="formLogin">
 
                     <div class="form-group">
                         <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Nome" class="form-control" required minlength="5">
@@ -64,13 +63,13 @@
                         <input type="text" name="imagem" id="imagem" placeholder=" URL de imagem" class="form-control" required minlength="5">
                     </div>
 
-                    <select>
+                    <select class="form-control" required minlength="5" mt-5>
                         <option value="pr">Paraná-PR</option>
                         <option value="sc">Santa Catarina-SC</option>
                         <option value="rs">Rio Grande do Sul-RS</option>
                     </select>
 
-                    <select>
+                    <select class="form-control" required minlength="5" >
                         <option value="guabiruba">Guabiruba</option>
                         <option value="novaTrento">Nova Trento</option>
                         <option value="blumenau">Blumenau</option>
@@ -79,6 +78,9 @@
                     </select>
 
                     <div class="form-group" mt-4>
+                        <div class="custom-control custom checkbox">
+                            <input type="checkbox" nome="lembrar" id="lembrar" class="custom-control-input">
+                        </div>
 
                     </div>
 
@@ -92,10 +94,4 @@
                 </form>
             </div>
         </section>
-
-
-
-
-
-
 </html>

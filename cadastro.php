@@ -1,65 +1,47 @@
 <?php
-#back-end
-}
+
+$nomeUsuario = $_POST['Nome'];
+$email = $_POST['email'];
+$data = $_POST['data'];
+$urlFacebook = $_POST['urlFacebook'];
+$urlImagem = $_POST['urlImagem'];
+$estado = $_POST['estado'];
+$cidade = $_POST['cidade'];
+
+list($ano, $mes, $dia) = explode('-', $data);
+
+$hoje = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+
+$nascimento = mktime(0, 0, 0, $mes, $dia, $ano);
+$idade = floor((((($hoje - $nascimento) / 60) / 60) / 24) / 365.25);
+
+echo "Nome Completo:<strong style='color:purple;'>$nomeCompleto</strong><br>";
+echo "Email: $email <br>";
+echo "Idade: $data = $idade Anos <br>";
+echo "Facebook: <a href='$urlFacebook'>$urlImagem</a> <br>";
+echo "Estado: $estado <br>";
+echo "Cidade: $cidade <br>";
+echo "<center><img src='$urlImagem' width='300px' height='300px''></center>";
 
 if (isset($_POST['nome'])) {
-    echo "\n<h1>Envio de dados metodo <em>POST<em></h1>";
+    echo "\n<h1>Envio de dados método <em>POST</em></h1>";
+
     echo "\n<pre>\n";
     print_r($_POST); #Array
     echo "\n</pre>\n";
 
-    print("\n<br><strong>Nome: </strong>");
+    print("\n<br><strong>Nome: </strong>\n");
     print("$_POST[nome]");
 
-    print("\n<br><strong>E-mail: </strong>");
+    print("\n<br><strong>E-mail: </strong>\n");
     print("$_POST[email]");
 
-    print("\n<br><strong>perfil do facebook: </strong>");
+    print("\n<br><strong>Url do Facebook: </strong>\n");
     print("$_POST[perfil]");
 
-    print("\n<br><strong>Url Da Imagem: </strong>");
-    print("$_POST[Imagem]");
+    print("\n<br><strong>Url da Imagem:</strong>\n");
+    print("$_POST[imagem]");
+
+    print("\n<br><strong>Data: </strong>\n");
+    print("$_POST[dataUsuario]");
 }
-<?php
-
-function calculo_idade($data) {
-
-    //Data atual
-    $dia = date('d');
-    $mes = date('m');
-    $ano = date('Y');
-
-    //Data do aniversário
-    $nascimento = explode('/', $data);
-    $dianasc = ($nascimento[0]);
-    $mesnasc = ($nascimento[1]);
-    $anonasc = ($nascimento[2]);
-
-    // se for formato do banco, use esse código em vez do de cima!
-    /*
-    $nascimento = explode('-', $nascimento);
-    $dianasc = ($nascimento[2]);
-    $mesnasc = ($nascimento[1]);
-    $anonasc = ($nascimento[0]);
-     */
-
-    //Calculando sua idade
-    $idade = $ano - $anonasc; // simples, ano- nascimento!
-
-    if ($mes < $mesnasc) // se o mes é menor, só subtrair da idade
-    {
-        $idade--;
-        return $idade;
-    }
-    elseif ($mes == $mesnasc && $dia <= $dianasc) // se esta no mes do aniversario mas não passou ou chegou a data, subtrai da idade
-    {
-        $idade--;
-        return $idade;
-    }
-    else // ja fez aniversario no ano, tudo certo!
-    {
-        return $idade;
-    }
-}
-
-echo calculo_idade('01/02/1986'); // mostra a idade na tela/console!
